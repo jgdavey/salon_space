@@ -1,0 +1,10 @@
+*.DS_Store
+/log/*.log
+/tmp/**/*
+/db/*.sqlite3
+/doc/api
+/doc/plugins
+/doc/app
+/config/database.yml
+/coverage
+*.swp
