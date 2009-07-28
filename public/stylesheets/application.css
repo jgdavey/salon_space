@@ -3,15 +3,28 @@
 }
 
 body {
-	background-color: #f9e3c9;
+	background-color: #69d2e7;
 }
 
 #container {
 	padding: 10px 15px;
-	border: 1px solid #edd;
+	border: 1px solid #3fcbe7;
 	background-color: #fff;
 	margin-top: 25px;
+	margin-bottom: 18px;
 	border-radius: 10px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
+}
+
+#siteid a {
+	display: block;
+	height: 126px;
+	width: 100%;
+	outline: none;
+	background: url('/images/salonspace.png') no-repeat;
+}
+
+#siteid a span {
+	display: none;
 }

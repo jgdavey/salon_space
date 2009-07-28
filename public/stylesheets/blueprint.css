@@ -279,4 +279,4 @@ a.negative:hover, button.negative:hover {background-color:#fbe3e4;border:1px sol
 a.negative:active {background-color:#d12f19;border:1px solid #d12f19;color:#fff;}
 
 /* semantic class names */
-#footer, #header {float:left;margin-right:10px;width:950px;margin:0;}
+#header {float:left;margin-right:10px;width:950px;margin:0;}
