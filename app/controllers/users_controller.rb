@@ -6,10 +6,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:notice] = "Successfully created user."
+      flash[:notice] = "Thanks for signing up!"
       redirect_to root_url
     else
-      render :action => 'new'
+      render :new
     end
   end
   
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Successfully updated user."
       redirect_to root_url
     else
-      render :action => 'edit'
+      render :edit
     end
   end
 end

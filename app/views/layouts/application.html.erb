@@ -9,21 +9,21 @@
   </head>
   <body>
     <div id="container" class="container">
-      <div id="header">
+      <div id="header" class="clearfix">
         <h1 id="siteid" class="column span-10"><a href="/"><span>Salon Space</span></a></h1>
       </div>
-      <%- flash.each do |name, msg| -%>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <%- end -%>
+      <div id="content" class="span-24">
+        <%- flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, :id => "flash_#{name}", :class => name %>
+        <%- end -%>
+
+        <%- if show_title? -%>
+          <h1><%=h yield(:title) %></h1>
+        <%- end -%>
       
-      <%- if show_title? -%>
-        <h1><%=h yield(:title) %></h1>
-      <%- end -%>
-      
-      <%= yield %>
-      
+        <%= yield %>
+      </div>
     </div>
-    
     
     <div id="footer" class="container">
       <p>Copyright (c) 2009 by Joshua Davey.</p>
