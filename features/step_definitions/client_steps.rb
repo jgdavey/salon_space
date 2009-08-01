@@ -8,7 +8,7 @@ end
 
 Given /^the following clients:$/ do |table|
   table.hashes.each do |row|
-    Client.create!(:name => row['name'])
+    Factory(:client, :name => row['name'])
   end
 end
 
