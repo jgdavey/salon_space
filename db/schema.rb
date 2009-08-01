@@ -9,12 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090801053335) do
+ActiveRecord::Schema.define(:version => 20090801215939) do
 
   create_table "clients", :force => true do |t|
-    t.string   "name"
+    t.string   "first_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "phone"
+    t.string   "phone_type"
+    t.string   "email"
+    t.string   "address"
+    t.string   "last_name"
+    t.text     "notes"
+    t.date     "birthdate"
   end
 
   create_table "users", :force => true do |t|
