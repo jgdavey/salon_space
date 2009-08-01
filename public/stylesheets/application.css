@@ -28,3 +28,7 @@ body {
 #siteid a span {
 	display: none;
 }
+
+#navigation {
+	margin-top: 90px;
+}

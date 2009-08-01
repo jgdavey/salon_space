@@ -5,8 +5,10 @@
   <%=h @client.name %>
 </p>
 
+<p class="clearfix clear">
+  <%= link_to "Edit", edit_client_path(@client), :class => 'button' %>
+  <%= link_to "Destroy", @client, :confirm => 'Are you sure?', :method => :delete, :class => 'button negative' %>
+</p>
 <p>
-  <%= link_to "Edit", edit_client_path(@client) %> |
-  <%= link_to "Destroy", @client, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", clients_path %>
 </p>

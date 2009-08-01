@@ -7,11 +7,11 @@
   <% for client in @clients %>
     <tr>
       <td><%=h client.name %></td>
-      <td><%= link_to "Show", client %></td>
-      <td><%= link_to "Edit", edit_client_path(client) %></td>
-      <td><%= button_to "Delete", client, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Show", client, :class => 'button' %></td>
+      <td><%= link_to "Edit", edit_client_path(client), :class => 'button' %></td>
+      <td><%= link_to "Delete", client, :confirm => 'Are you sure?', :method => :delete, :class => 'button negative' %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Client", new_client_path %></p>
+<p><%= link_to "New Client", new_client_path, :class => 'button positive' %></p>
