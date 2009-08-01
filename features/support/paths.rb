@@ -10,12 +10,25 @@ module NavigationHelpers
     
     when /the homepage/
       '/'
+    when /the new layout page/
+      new_layout_path
+
+    when /the new layout page/
+      new_layout_path
+
     when /the signup page/
       signup_path
     when /the login page/
       login_path
     when /logout/
       logout_path
+      
+    when /the new client page/
+      new_client_path
+    when /the list of clients page/
+      clients_path
+    when /the edit page for the client named "([^\"]+)"$/
+      edit_client_path(Client.find_by_name($1))
     
     # Add more mappings here.
     # Here is a more fancy example:
