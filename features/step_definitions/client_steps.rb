@@ -8,7 +8,11 @@ end
 
 Given /^the following clients:$/ do |table|
   table.hashes.each do |row|
-    Factory(:client, :name => row['name'])
+    client = Factory.build(:client, :name => row['name'])
+    %w{phone email}.each do |method|
+      client[method] = row[method] if row[method]
+    end
+    client.save
   end
 end
 

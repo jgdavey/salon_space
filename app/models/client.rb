@@ -4,7 +4,7 @@ class Client < ActiveRecord::Base
                               :message => "should be of format ###-###-####"
 
   def name
-    @name ||= "#{first_name} #{last_name}"
+    @name ||= [first_name, last_name].compact.join(' ')
   end
   
   def name=(_name)
