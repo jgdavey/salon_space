@@ -7,6 +7,7 @@ Feature: Manage Clients
     Given I have no clients
     When I go to the new client page
     And I fill in "Name" with "Jessie Jay"
+    And I fill in "Phone" with "222-344-2221"
     And I press "Save"
     Then I should see "New Client saved!"
     And I should have 1 client
