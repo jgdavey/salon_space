@@ -1,3 +1,21 @@
+# == Schema Information
+# Schema version: 20090801215939
+#
+# Table name: clients
+#
+#  id         :integer         not null, primary key
+#  first_name :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#  phone      :string(255)
+#  phone_type :string(255)
+#  email      :string(255)
+#  address    :string(255)
+#  last_name  :string(255)
+#  notes      :text
+#  birthdate  :date
+#
+
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Client do
@@ -11,7 +29,9 @@ describe Client do
     c.last_name.should eql('Bob')
     c.name.should eql('Jim Bob')
   end
-  
+end
+
+describe Client, "phone number" do
   it "should be valid with phone format of ###-###-####" do
     client = Factory.build(:client, :phone => '987-654-1234')
     client.should be_valid
@@ -21,4 +41,34 @@ describe Client do
     client = Factory.build(:client, :phone => '1234')
     client.should_not be_valid
   end
+  
+  it "should be valid with no phone number" do
+    client = Factory.build(:client, :phone => nil)
+    client.should be_valid
+  end
 end
+
+describe Client, "email" do
+  it "should be valid with standard email format" do
+    client = Factory.build(:client, :email => 'correct@example.com')
+    client.should be_valid
+  end
+  
+  it "should no tbe valid with a bad email address" do
+    client = Factory.build(:client, :email => 'incorrect')
+    client.should_not be_valid
+  end
+  
+  it "should allow blank email" do
+    client = Factory.build(:client, :email => '')
+    client.should be_valid
+  end
+end
+
+describe Client, "address" do
+  it "should be an address" do
+    client = Factory.build(:client, :address => "123 W Point\nChicago, IL")
+    client.address.should eql("123 W Point\nChicago, IL")
+  end
+end
+
