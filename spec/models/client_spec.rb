@@ -54,7 +54,7 @@ describe Client, "email" do
     client.should be_valid
   end
   
-  it "should no tbe valid with a bad email address" do
+  it "should not be valid with a bad email address" do
     client = Factory.build(:client, :email => 'incorrect')
     client.should_not be_valid
   end
@@ -69,6 +69,20 @@ describe Client, "address" do
   it "should be an address" do
     client = Factory.build(:client, :address => "123 W Point\nChicago, IL")
     client.address.should eql("123 W Point\nChicago, IL")
+  end
+end
+
+describe Client, "other attributes" do
+  it "should have a notes field" do
+    client = Factory.build(:client)
+    client.notes = "Blah blah."
+    client.should be_valid
+  end
+  
+  it "should have a hair description field" do
+    client = Factory.build(:client)
+    client.hair_description = "Long and hideous"
+    client.should be_valid
   end
 end
 

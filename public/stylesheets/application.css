@@ -60,3 +60,12 @@ body {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 }
+
+form.client label {
+	display: block;
+}
+
+textarea.shallow {
+	height: auto;
+	width: 300px;
+}
