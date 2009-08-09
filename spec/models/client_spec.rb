@@ -1,19 +1,20 @@
 # == Schema Information
-# Schema version: 20090801215939
+# Schema version: 20090809024922
 #
 # Table name: clients
 #
-#  id         :integer         not null, primary key
-#  first_name :string(255)
-#  created_at :datetime
-#  updated_at :datetime
-#  phone      :string(255)
-#  phone_type :string(255)
-#  email      :string(255)
-#  address    :string(255)
-#  last_name  :string(255)
-#  notes      :text
-#  birthdate  :date
+#  id               :integer         not null, primary key
+#  first_name       :string(255)
+#  created_at       :datetime
+#  updated_at       :datetime
+#  phone            :string(255)
+#  phone_type       :string(255)
+#  email            :string(255)
+#  address          :string(255)
+#  last_name        :string(255)
+#  notes            :text
+#  birthdate        :date
+#  hair_description :text
 #
 
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
