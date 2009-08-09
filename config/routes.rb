@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :appointments
+
   map.resources :clients
 
 
@@ -8,7 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
   map.login "login", :controller => "user_sessions", :action => "new"
 
-  map.resources :user_sessions, :users, :clients
+  map.resources :user_sessions, :users, :clients, :appointments
 
 
   # Install the default routes as the lowest priority.

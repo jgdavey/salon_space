@@ -1,0 +1,12 @@
+<% title "Appointment" %>
+
+<p>
+  <strong>Time:</strong>
+  <%=h @appointment.time %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_appointment_path(@appointment) %> |
+  <%= link_to "Destroy", @appointment, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", appointments_path %>
+</p>

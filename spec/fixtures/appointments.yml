@@ -1,0 +1,17 @@
+# == Schema Information
+# Schema version: 20090809040942
+#
+# Table name: appointments
+#
+#  id         :integer         not null, primary key
+#  time       :datetime
+#  client_id  :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+one:
+  time: 2009-08-08 23:09:42
+
+two:
+  time: 2009-08-08 23:09:42

@@ -29,7 +29,10 @@ module NavigationHelpers
       clients_path
     when /the edit page for the client named "([^\"]+)"$/
       edit_client_path(Client.find_by_name($1))
-    
+
+    when /^the list of appointments(?: page)$/
+      appointments_path
+
     # Add more mappings here.
     # Here is a more fancy example:
     #

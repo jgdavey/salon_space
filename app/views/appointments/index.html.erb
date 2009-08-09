@@ -1,0 +1,21 @@
+<% title "Appointments" %>
+
+<table>
+  <tr>
+    <th>Time</th>
+    <th>Client</th>
+  </tr>
+  <% for appointment in @appointments %>
+    <tr>
+      <td><%=h appointment.time %></td>
+      <td><%= appointment.client ? appointment.client.name : "" %></td>
+      <td>
+      <%= link_to "Show", appointment %>
+      <%= link_to "Edit", edit_appointment_path(appointment) %>
+      <%= link_to "Destroy", appointment, :confirm => 'Are you sure?', :method => :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Appointment", new_appointment_path %></p>
