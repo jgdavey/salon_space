@@ -16,5 +16,6 @@ Factory.define :client do |f|
 end
 
 Factory.define :appointment do |f|
-  f.time       1.day.ago
+  f.time        1.day.ago
+  f.association :client
 end

@@ -14,5 +14,19 @@ Feature: Managing Appointments
     Then I should see "Successfully created appointment"
     And I should see "Jane Michaels"
     And I should be on the list of appointments page
+    And I should see "August 1, 2009"
+
+
+  Scenario: Update an appointment
+    Given I have the following appointment records:
+    | time       |
+    | 2009-08-01 |
+    And I am on the list of appointments page
+    When I follow "Edit"
+    And I select "August 2, 2009" as the "Date of Appointment" date
+    And I press "Save"
+    Then I should see "Successfully updated appointment"
+    And I should be on the list of appointments page
+    And I should see "August 2, 2009"
 
   

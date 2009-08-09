@@ -48,7 +48,7 @@ describe AppointmentsController do
   it "update action should redirect when model is valid" do
     Appointment.any_instance.stubs(:valid?).returns(true)
     put :update, :id => Appointment.first
-    response.should redirect_to(appointment_url(assigns[:appointment]))
+    response.should redirect_to(appointments_url)
   end
   
   it "destroy action should destroy model and redirect to index action" do

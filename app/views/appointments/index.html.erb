@@ -7,7 +7,7 @@
   </tr>
   <% for appointment in @appointments %>
     <tr>
-      <td><%=h appointment.time %></td>
+      <td><%=h appointment.pretty_time %></td>
       <td><%= appointment.client ? appointment.client.name : "" %></td>
       <td>
       <%= link_to "Show", appointment %>

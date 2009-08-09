@@ -12,4 +12,15 @@
 
 class Appointment < ActiveRecord::Base
   belongs_to :client
+  default_scope :order => 'time ASC'
+  named_scope   :needing_client, :conditions => {:client_id => nil}
+
+  def pretty_time
+    @pretty_time ||= time.to_s(:pretty).gsub(/  /, ' ')
+  end
+  
+  def pretty_date
+    @pretty_date ||= time.to_date.to_s(:pretty).gsub(/  /, ' ')    
+  end
+
 end

@@ -29,7 +29,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find(params[:id])
     if @appointment.update_attributes(params[:appointment])
       flash[:notice] = "Successfully updated appointment."
-      redirect_to @appointment
+      redirect_to appointments_path
     else
       render :edit
     end

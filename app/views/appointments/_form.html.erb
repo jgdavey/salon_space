@@ -6,7 +6,7 @@
   </p>
   <p>
     <%= f.label :client_id %>
-    <%= f.collection_select :client_id, Client.all, :id, :name %>
+    <%= f.collection_select :client_id, Client.all, :id, :name, :include_blank => true %>
   </p>
   <p><%= f.submit "Save" %></p>
 <% end %>
