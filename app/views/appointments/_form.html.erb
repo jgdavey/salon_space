@@ -8,5 +8,5 @@
     <%= f.label :client_id %>
     <%= f.collection_select :client_id, Client.all, :id, :name, :include_blank => true %>
   </p>
-  <p class="clearfix"><%= button_tag "Save", :class => 'positive' %></p>
+  <p class="clearfix"><%= button_tag image_tag('/stylesheets/icons/tick.png') + " Save", :class => 'positive' %></p>
 <% end %>
