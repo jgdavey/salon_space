@@ -1,12 +1,12 @@
 <% title "Appointment" %>
 
-<p>
-  <strong>Time:</strong>
-  <%=h @appointment.time %>
-</p>
+<h3><%=h @appointment.pretty_time %></h3>
+
+<%- if @appointment.client -%>
+  <p><%= link_to @appointment.client.name, @appointment.client %></p>
+<%- end -%>
 
 <p>
   <%= link_to "Edit", edit_appointment_path(@appointment) %> |
-  <%= link_to "Destroy", @appointment, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", appointments_path %>
+  <%= link_to "All Appointments", appointments_path %>
 </p>

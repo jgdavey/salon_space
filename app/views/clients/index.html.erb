@@ -8,13 +8,12 @@
   </tr>
   <% for client in @clients %>
     <tr>
-      <td><%=h client.name %></td>
+      <td><%= link_to client.name, client %></td>
       <td><%=h client.phone %></td>
       <td><%=h client.email %></td>
       <td>
-        <%= link_to "Show", client, :class => 'button' %>
         <%= link_to "Edit", edit_client_path(client), :class => 'button' %>
-        <%= link_to "Delete", client, :confirm => 'Are you sure?', :method => :delete, :class => 'button negative' %>
+        <%= link_to  image_tag('/stylesheets/icons/cross.png') + " Destroy", client, :confirm => 'Are you sure?', :method => :delete, :class => 'button negative' %>
       </td>
     </tr>
   <% end %>

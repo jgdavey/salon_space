@@ -7,15 +7,14 @@
   </tr>
   <% for appointment in @appointments %>
     <tr>
-      <td><%=h appointment.pretty_time %></td>
-      <td><%= appointment.client ? appointment.client.name : "" %></td>
+      <td><%= link_to appointment.pretty_time, appointment %></td>
+      <td><%= link_to appointment.client.name, appointment.client if appointment.client %></td>
       <td>
-      <%= link_to "Show", appointment %>
-      <%= link_to "Edit", edit_appointment_path(appointment) %>
-      <%= link_to "Destroy", appointment, :confirm => 'Are you sure?', :method => :delete %>
+      <%= link_to "Edit", edit_appointment_path(appointment), :class => 'button' %>
+      <%= link_to image_tag('/stylesheets/icons/cross.png') + " Destroy", appointment, :confirm => 'Are you sure?', :method => :delete, :class => 'button negative' %>
       </td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Appointment", new_appointment_path %></p>
+<p><%= link_to "New Appointment", new_appointment_path, :class => 'button positive' %></p>
