@@ -2,6 +2,10 @@ Given /^there are no users$/ do
   User.count.should be(0)
 end
 
+Given /^I am not logged in$/ do
+  visit logout_path
+end
+
 Given /^a user with email and password "(.*)\/(.*)"$/ do |e, p|
   Factory(:user, :email => e, :password => p)
 end

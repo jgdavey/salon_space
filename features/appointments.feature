@@ -3,6 +3,10 @@ Feature: Managing Appointments
   As a Salon Professional
   I want to manage past and present client appointments
 
+  Background:
+    Given a user with email and password "bob@example.com/secret"
+    Given I am logged in as "bob@example.com/secret"
+
 
   Scenario: Adding a new appointment
     Given I am on the list of appointments page

@@ -2,6 +2,15 @@ Feature: Manage Clients
   In order to know exactly who I have contact with
   As a salon working
   I want to manage a list of clients
+  
+  Background:
+    Given a user with email and password "bob@example.com/secret"
+    Given I am logged in as "bob@example.com/secret"
+  
+  Scenario: No access unless logged in
+    Given I am not logged in
+    When I go to the list of clients page
+    Then I should see "You must be logged in to view this"
 
   Scenario: Adding a new client
     Given I have no clients

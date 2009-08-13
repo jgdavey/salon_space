@@ -13,7 +13,7 @@
       <td><%=h client.email %></td>
       <td>
         <%= link_to "Edit", edit_client_path(client), :class => 'button' %>
-        <%= link_to image_tag('/stylesheets/icons/cross.png') + " Destroy", client, :confirm => 'Are you sure?', :method => :delete, :class => 'button negative' %>
+        <%= link_to image_tag('/stylesheets/icons/cross.png') + " Delete", client, :confirm => 'Are you sure?', :method => :delete, :class => 'button negative' %>
       </td>
     </tr>
   <% end %>

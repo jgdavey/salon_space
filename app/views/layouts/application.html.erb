@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
   <head>
-    <title><%= h(yield(:title) || "Untitled") %></title>
+    <title><%= h(yield(:title) || "Untitled") %> - Salon Space</title>
     <%= stylesheet_link_tag 'blueprint', 'application' %>
     <!--[if lt IE 8]><%= stylesheet_link_tag 'ie' %><![endif]-->
     <%= yield(:head) %>
@@ -11,11 +11,24 @@
     <div id="container" class="container">
       <div id="header" class="clearfix">
         <h1 id="siteid" class="column span-10"><a href="/"><span>Salon Space</span></a></h1>
+        
+        <ul class="round last span-8 column" id="usernav">
+          <% if current_user %>
+          <li>Logged in as <%= current_user.email %></li>
+          <li class="last"><%= link_to "Logout", logout_url %></li>
+          <% else %>
+          <li class="last"><%= link_to "Log in", login_url %></li>
+          <% end %>
+        </ul>
+
+       <% if current_user -%>
         <ul id="navigation" class="push-1 round tabs last">
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Clients", clients_path %></li>
-          <li><%= link_to "Appointments", appointments_path %></li>
+          <li class="last"><%= link_to "Appointments", appointments_path %></li>
         </ul>
+      <% end -%>
+
       </div>
       <div id="content" class="span-24">
         <%- flash.each do |name, msg| -%>

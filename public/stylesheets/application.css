@@ -7,7 +7,7 @@ body {
 }
 
 #container {
-	padding: 10px 15px;
+	padding: 15px 15px 10px;
 	border: 1px solid #3fcbe7;
 	background-color: #fff;
 	margin-top: 25px;
@@ -30,7 +30,7 @@ body {
 }
 
 #navigation {
-	margin-top: 4em;
+	margin-top: 2em;
 	margin-right: -17px;
 	padding: .5em 1em 0;
 	background-color: #69d2e7;
@@ -43,6 +43,8 @@ body {
 	margin: 0 .5em;
 }
 
+
+
 #navigation a {
 	background-color: transparent;
 	border: 0 none;
@@ -53,6 +55,24 @@ body {
 
 #navigation a:hover {
 	background-color: #fff;
+}
+
+#usernav {
+	list-style: none;
+	background-color: #eee;
+	padding: 9px 1.5em;
+	float: right;
+}
+
+#usernav li{
+	float: left;
+	padding-right: 1em;
+	margin-right:  1em;
+	border-right:  1px solid #999;
+}
+
+#usernav li.last {
+	border: 0 none;
 }
 
 .round {

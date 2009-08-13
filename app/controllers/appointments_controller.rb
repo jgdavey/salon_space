@@ -1,4 +1,6 @@
 class AppointmentsController < ApplicationController
+  before_filter :require_user
+
   def index
     @appointments = Appointment.all
   end

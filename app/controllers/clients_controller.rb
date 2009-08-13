@@ -1,4 +1,6 @@
 class ClientsController < ApplicationController
+  before_filter :require_user
+  
   def index
     @clients = Client.all
   end
