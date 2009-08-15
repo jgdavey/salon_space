@@ -12,6 +12,8 @@
 
 class Appointment < ActiveRecord::Base
   belongs_to :client
+  belongs_to :service
+  belongs_to :location
   default_scope :order => 'time ASC'
   named_scope   :needing_client, :conditions => {:client_id => nil}
 

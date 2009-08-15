@@ -1,3 +1,4 @@
+@focus
 Feature: Managing Appointments
   So that I can effictively schedule clients
   As a Salon Professional
@@ -11,14 +12,29 @@ Feature: Managing Appointments
   Scenario: Adding a new appointment
     Given I am on the list of appointments page
     And I have a client named "Jane Michaels"
+    And I have the following service records:
+    | name    |
+    | Haircut |
+    | Blowdry |
+    And I have the following location records:
+    | name           |
+    | Red7 - Chicago |
+    | Home           |
+
     When I follow "New Appointment"
     And I select "August 1, 2009" as the "Date of Appointment" date
     And I select "Jane Michaels" from "Client"
+    And I select "Haircut" from "Type of Service"
+    And I select "Home" from "Location"
     And I press "Save"
+
     Then I should see "Successfully created appointment"
-    And I should see "Jane Michaels"
     And I should be on the list of appointments page
+    And I should see "Jane Michaels"
     And I should see "August 1, 2009"
+    And I should see "Jane Michaels"
+    And I should see "Haircut"
+    And I should see "Home"
 
 
   Scenario: Update an appointment
@@ -29,6 +45,7 @@ Feature: Managing Appointments
     When I follow "Edit"
     And I select "August 2, 2009" as the "Date of Appointment" date
     And I press "Save"
+
     Then I should see "Successfully updated appointment"
     And I should be on the list of appointments page
     And I should see "August 2, 2009"

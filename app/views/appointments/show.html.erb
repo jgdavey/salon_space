@@ -6,6 +6,8 @@
   <p><%= link_to @appointment.client.name, @appointment.client %></p>
 <%- end -%>
 
+<p><%= @appointment.service.name if @appointment.service %></p>
+
 <p>
   <%= link_to "Edit", edit_appointment_path(@appointment) %> |
   <%= link_to "All Appointments", appointments_path %>

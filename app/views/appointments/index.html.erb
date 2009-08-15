@@ -4,11 +4,15 @@
   <tr>
     <th>Time</th>
     <th>Client</th>
+    <th>Location</th>
+    <th>Service</th>
   </tr>
   <% for appointment in @appointments %>
     <tr>
       <td><%= link_to appointment.pretty_time, appointment %></td>
       <td><%= link_to appointment.client.name, appointment.client if appointment.client %></td>
+      <td><%= appointment.location.name if appointment.location %></td>
+      <td><%= appointment.service.name if appointment.service %></td>
       <td>
       <%= link_to "Edit", edit_appointment_path(appointment), :class => 'button' %>
       <%= link_to image_tag('/stylesheets/icons/cross.png') + " Destroy", appointment, :confirm => 'Are you sure?', :method => :delete, :class => 'button negative' %>

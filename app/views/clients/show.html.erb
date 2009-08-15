@@ -1,13 +1,24 @@
-<% title "Client" %>
+<% title @client.name || "Client" %>
 
-<p>
-  <strong>Name:</strong>
-  <%=h @client.name %>
-</p>
+<% for attribute in %w(phone phone_type email address hair_description) %>
+    <% unless @client[attribute].blank? %>
+    <p>
+      <strong><%= attribute.humanize %></strong>:
+      <%= @client[attribute] %>
+    </p>
+    <% end %>
+<% end %>
+
+<% unless @client.birthdate.blank? %>
+  <p>
+    <strong>Birthdate</strong>:
+    <%= @client.birthdate.strftime("%B %e") %>
+  </p>
+<% end %>
 
 <p class="clearfix clear">
   <%= link_to "Edit", edit_client_path(@client), :class => 'button' %>
-  <%= link_to "Destroy", @client, :confirm => 'Are you sure?', :method => :delete, :class => 'button negative' %>
+  <%= link_to image_tag("/stylesheets/icons/cross.png") + " Destroy", @client, :confirm => 'Are you sure?', :method => :delete, :class => 'button negative' %>
 </p>
 <p>
   <%= link_to "View All", clients_path %>

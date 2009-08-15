@@ -18,4 +18,14 @@ end
 Factory.define :appointment do |f|
   f.time        1.day.ago
   f.association :client
+  f.association :service
+  f.association :location
+end
+
+Factory.define :service do |f|
+  f.name "Haircut"
+end
+
+Factory.define :location do |f|
+  f.name "Fake Location"
 end
