@@ -1,1 +1,51 @@
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<% title "Salon Space Home", false %>
+<p>Welcome to Salon Space, <%= current_user && current_user.email || "Somebody" %></p>
+<div id="upcoming_appointments" class="span-8">
+  <h2>Upcoming Appointments</h2>
+  <% if !@upcoming_appointments.blank? -%>
+  <ul>
+    <% for appointment in @upcoming_appointments %>
+      <li>
+        <%= link_to appointment.pretty_time, appointment %>
+        <% unless appointment.client.blank? %>
+          with <%= link_to appointment.client.name, appointment.client %>
+        <% end -%>
+      </li>
+    <% end %>
+  </ul>
+  <% else %>
+  <p>You don't have any upcoming appointments.</p>
+  <% end -%>
+  <p><%= link_to "New Appointment", new_appointment_path %></p>
+</div>
+<div id="recent_appointments" class="span-8">
+  <h2>Recent Appointments</h2>
+  <% if !@recent_appointments.blank? -%>
+  <ul>
+    <% for appointment in @recent_appointments %>
+      <li>
+        <%= link_to appointment.pretty_time, appointment %>
+        <% unless appointment.client.blank? %>
+          with <%= link_to appointment.client.name, appointment.client %>
+        <% end -%>
+      </li>
+    <% end %>
+  </ul>
+  <% else %>
+  <p>You haven't had any appointments yet.</p>
+  <% end -%>
+  <p><%= link_to "All Appointments", appointments_path %></p>
+</div>
+<div id="recent_clients" class="span-8 last">
+  <h2>Recent Clients</h2>
+  <% if !@new_clients.blank? %>
+  <ul>
+    <% for client in @new_clients %>
+      <li><%= link_to client.name, client %></li>
+    <% end %>
+  </ul>
+  <% else %>
+    <p>You don't have any clients yet.</p>
+  <% end %>
+  <p><%= link_to "Add New Client", new_client_path %></p>
+</div>

@@ -3,11 +3,11 @@
 <% form_for @user_session do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.text_field :email, :class => 'text' %>
   </p>
   <p>
-    <%= f.label :password %><br />
+    <%= f.label :password %>
     <%= f.password_field :password, :class => 'text' %>
   </p>
   <p><%= button_tag "Log in", :class => 'positive' %></p>

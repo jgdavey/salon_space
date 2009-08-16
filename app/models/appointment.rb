@@ -16,7 +16,15 @@ class Appointment < ActiveRecord::Base
   belongs_to :location
   default_scope :order => 'time ASC'
   named_scope   :needing_client, :conditions => {:client_id => nil}
-
+  named_scope   :upcoming, lambda { |*args| {
+    :conditions => ["time > ?", Time.now], 
+    :limit => (args.first || 5)
+    }}
+  named_scope   :recent, lambda { |*args| {
+    :conditions => ["time < ?", Time.now], 
+    :limit => (args.first || 5)
+    }}
+  
   def pretty_time
     @pretty_time ||= time.to_s(:pretty).gsub(/  /, ' ')
   end
