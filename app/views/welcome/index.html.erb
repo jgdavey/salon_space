@@ -1,5 +1,8 @@
 <% title "Salon Space Home", false %>
-<p>Welcome to Salon Space, <%= current_user && current_user.email || "Somebody" %></p>
+
+<% if current_user %>
+
+<p>Welcome to Salon Space, <%= current_user.email %></p>
 <div id="upcoming_appointments" class="span-8">
   <h2>Upcoming Appointments</h2>
   <% if !@upcoming_appointments.blank? -%>
@@ -49,3 +52,6 @@
   <% end %>
   <p><%= link_to "Add New Client", new_client_path %></p>
 </div>
+<% else %>
+<p>Please <%= link_to "Log in", login_url %> to start using Salon Space</p>
+<% end %>
