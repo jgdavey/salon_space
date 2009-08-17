@@ -29,3 +29,8 @@ end
 Factory.define :location do |f|
   f.name "Fake Location"
 end
+
+Factory.define :setting do |f|
+  f.name  "signup_enabled"
+  f.value "false"
+end

@@ -34,3 +34,14 @@ Feature: Authentication
 
     When I go to logout
     Then I should see "You were already logged out"
+
+
+  Scenario: Signup is disabled
+    Given I have the following setting records:
+    | name            | value |
+    | signup_disabled | true  |
+    When I go to the signup page
+    Then I should see "Signup is disabled"
+
+
+  

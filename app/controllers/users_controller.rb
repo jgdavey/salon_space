@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :check_signup_enabled
+  
   def new
     @user = User.new
   end
@@ -24,6 +26,15 @@ class UsersController < ApplicationController
       redirect_to root_url
     else
       render :edit
+    end
+  end
+  
+  private
+  
+  def check_signup_enabled
+    if Setting[:signup_disabled]
+      flash[:error] = "Signup is disabled at this time."
+      redirect_to root_url
     end
   end
 end
