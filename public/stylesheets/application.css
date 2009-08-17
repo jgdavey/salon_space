@@ -1,3 +1,5 @@
+/* @override http://salonspace.bethanydavey.com/stylesheets/application.css?1250478085 */
+
 .fieldWithErrors {
   display: inline;
 }
@@ -36,6 +38,8 @@ body {
 	background-color: #69d2e7;
 	border: 0 none;
 	font-size: 1.2em;
+	clear: right;
+	min-width: 300px;
 }
 
 #navigation li {
