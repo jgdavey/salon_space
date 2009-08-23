@@ -1,32 +1,14 @@
-<% form_for @client, :html => { :class  => 'client' } do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name, :class => 'text' %>
-  </p>
-  <p>
-    <%= f.label :email %>
-    <%= f.text_field :email, :class => 'text' %>
-  </p>
-  <p>
-    <%= f.label :phone %>
-    <%= f.text_field :phone, :class => 'text' %>
-  </p>
-  <p>
-    <%= f.label :address %>
-    <%= f.text_area :address, :rows => '1', :class => 'shallow' %>
-  </p>
-  <p>
-    <%= f.label :birthdate %>
-    <%= f.date_select :birthdate, :add_month_numbers => true, :order => [:month, :day], :include_blank => true %>
-  </p>
-  <p>
-    <%= f.label :hair_description %>
-    <%= f.text_area :hair_description, :rows => '1', :class => 'shallow' %>
-  </p>
-  <p>
-    <%= f.label :notes %>
-    <%= f.text_area :notes %>
-  </p>
-  <p class="clearfix"><%= button_tag image_tag('/stylesheets/icons/tick.png') + " Save", :class => 'positive' %></p>
+<% semantic_form_for @client, :html => { :class  => 'client' } do |f| %>
+    <% f.inputs :name =>  "Basic Info" do %>
+      <%= f.input :name %>
+      <%= f.input :email %>
+      <%= f.input :phone, :required => false %>
+      <%= f.input :address, :required => false %>
+      <%= f.input :hair_description, :input_html => {:class => 'shallow'} %>
+      <%= f.input :notes, :required => false %>
+      <%= f.input :birthdate, :as => :string, :required => false %>
+    <% end -%>
+    <% f.buttons do %>
+      <%= f.commit_button image_tag('/stylesheets/icons/tick.png') + " Save", :use_button_tag => true, :button_html => {:class => 'positive'} %>
+    <% end -%>
 <% end %>

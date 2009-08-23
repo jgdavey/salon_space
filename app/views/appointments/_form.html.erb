@@ -1,24 +1,12 @@
-<% form_for @appointment do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :time, "Date of Appointment" %>
-    <%= f.datetime_select :time, :twelve_hour => true, :minute_step => 5 %>
-  </p>
-  <p>
-    <%= f.label :client_id %>
-    <%= f.collection_select :client_id, Client.all, :id, :name, :include_blank => true %>
-  </p>
-  <p>
-    <%= f.label :service_id, "Type of Service" %>
-    <%= f.collection_select :service_id, Service.all, :id, :name %>
-  </p>
-  <p>
-    <%= f.label :location_id %>
-    <%= f.collection_select :location_id, Location.all, :id, :name %>
-  </p>
-  <p>
-    <%= f.label :notes %>
-    <%= f.text_area :notes %>
-  </p>
-  <p class="clearfix"><%= button_tag image_tag('/stylesheets/icons/tick.png') + " Save", :class => 'positive' %></p>
+<% semantic_form_for @appointment do |f| %>
+  <% f.inputs do %>
+    <%= f.input :time, :label => "Date of Appointment", :as => :string %>
+    <%= f.input :client, :required => false %>
+    <%= f.input :service, :label => "Type of Service" %>
+    <%= f.input :location %>
+    <%= f.input :notes, :required => false, :input_html => {:class => 'shallow'} %>
+  <% end -%>
+  <% f.buttons do %>
+  <%= f.commit_button image_tag('/stylesheets/icons/tick.png') + " Save", :use_button_tag => true, :class => 'positive' %></p>
+  <% end -%>
 <% end %>

@@ -22,7 +22,7 @@ Feature: Managing Appointments
     | Home           |
 
     When I follow "New Appointment"
-    And I select "August 1, 2009" as the "Date of Appointment" date
+    And I fill in "Date of Appointment" with "2009-08-01"
     And I select "Jane Michaels" from "Client"
     And I select "Haircut" from "Type of Service"
     And I select "Home" from "Location"
@@ -43,7 +43,7 @@ Feature: Managing Appointments
     | 2009-08-01 |
     And I am on the list of appointments page
     When I follow "Edit"
-    And I select "August 2, 2009" as the "Date of Appointment" date
+    And I fill in "Date of Appointment" with "2009-08-02"
     And I press "Save"
 
     Then I should see "Successfully updated appointment"
