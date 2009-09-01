@@ -1,3 +1,4 @@
 authlogic
+searchlogic
 mislav-will_paginate --source http://gems.github.com
 jgdavey-formtastic --source http://gems.github.com

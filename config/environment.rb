@@ -8,6 +8,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   config.gem 'authlogic'
+  config.gem 'searchlogic'
   config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com'
   config.gem 'jgdavey-formtastic', :lib => false, :source => 'http://gems.github.com'
 
