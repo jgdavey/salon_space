@@ -136,10 +136,30 @@ form button {
 
 .inline-errors {
 	display: inline;
-	float: right;
+	padding: 0 5px;
+}
+
+li.error {
+	padding: .2em 0;
+	margin-left: -2px;
 }
 
 /* @end */
+
+/* @group Tables */
+
+td, th {
+	padding: 0 .5em;
+	height: 18px; /* Actually, min-height */
+}
+
+tr:hover td {
+	background-color: #ffa;
+}
+
+
+/* @end */
+
 
 /* @group Timepicker jQuery plugin */
 
