@@ -1,4 +1,4 @@
-/* @override http://salonspace.bethanydavey.com/stylesheets/application.css?1250478085 */
+/* @override http://salonspace.bethanydavey.com/stylesheets/application.css */
 
 .fieldWithErrors {
   display: inline;
@@ -6,6 +6,12 @@
 
 body {
 	background-color: #69d2e7;
+}
+
+.round {
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
 }
 
 #container {
@@ -30,6 +36,8 @@ body {
 #siteid a span {
 	display: none;
 }
+
+/* @group Navigation */
 
 #navigation {
 	margin-top: 2em;
@@ -79,11 +87,9 @@ body {
 	border: 0 none;
 }
 
-.round {
-	border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-}
+/* @end */
+
+/* @group Forms */
 
 fieldset.buttons {
 	border:0 none;
@@ -128,62 +134,14 @@ form button {
 	margin-left: 200px;
 }
 
-
-
-
-.demoHeaders {
-    margin-top: 2em;
+.inline-errors {
+	display: inline;
+	float: right;
 }
 
-#dialog_link {
-    padding: .4em 1em .4em 20px;
-    text-decoration: none;
-    position: relative;
-}
+/* @end */
 
-#dialog_link span.ui-icon {
-    margin: 0 5px 0 0;
-    position: absolute;
-    left: .2em;
-    top: 50%;
-    margin-top: -8px;
-}
-
-ul#icons {
-    margin: 0;
-    padding: 0;
-}
-
-ul#icons li {
-    margin: 2px;
-    position: relative;
-    padding: 4px 0;
-    cursor: pointer;
-    float: left;
-    list-style: none;
-}
-
-ul#icons span.ui-icon {
-    float: left;
-    margin: 0 4px;
-}
-
-
-.selHrs, .selMins {
-	width:2.5em;
-}
-.selHrs {
-	margin-left:5px;
-}
-.dayPeriod {
-	display:inline-block;
-	width:20px;
-}
-.slider {
-	height:120px;
-	float:left;
-	margin:10px
-}
+/* @group Timepicker jQuery plugin */
 
 #tpSelectedTime {
 	margin-bottom:0;
@@ -248,3 +206,58 @@ text-align:center;
 /*	background:#FBF9EE url(images/ui-bg_glass_55_fbf9ee_1x400.png) repeat-x scroll 50% 50%;
 border:1px solid #FCEFA1;*/
 }
+
+.selHrs, .selMins {
+	width:2.5em;
+}
+.selHrs {
+	margin-left:5px;
+}
+.dayPeriod {
+	display:inline-block;
+	width:20px;
+}
+.slider {
+	height:120px;
+	float:left;
+	margin:10px
+}
+
+.demoHeaders {
+    margin-top: 2em;
+}
+
+#dialog_link {
+    padding: .4em 1em .4em 20px;
+    text-decoration: none;
+    position: relative;
+}
+
+#dialog_link span.ui-icon {
+    margin: 0 5px 0 0;
+    position: absolute;
+    left: .2em;
+    top: 50%;
+    margin-top: -8px;
+}
+
+ul#icons {
+    margin: 0;
+    padding: 0;
+}
+
+ul#icons li {
+    margin: 2px;
+    position: relative;
+    padding: 4px 0;
+    cursor: pointer;
+    float: left;
+    list-style: none;
+}
+
+ul#icons span.ui-icon {
+    float: left;
+    margin: 0 4px;
+}
+
+/* @end */

@@ -3,7 +3,8 @@
 <html>
   <head>
     <title><%= h(yield(:title) || "Untitled") %> - Salon Space</title>
-    <%= stylesheet_link_tag 'blueprint', 'datepicker','application'  %>
+    <%= stylesheet_link_tag 'blueprint', 'datepicker' %>
+    <link rel="stylesheet" href="/stylesheets/application.css" type="text/css" media="screen" />
     <!--[if lt IE 8]><%= stylesheet_link_tag 'ie' %><![endif]-->
     <%= yield(:head) %>
   </head>
