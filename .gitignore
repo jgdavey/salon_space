@@ -8,3 +8,4 @@
 /config/database.yml
 /coverage
 *.swp
+tmp/restart.txt

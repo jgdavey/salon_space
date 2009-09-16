@@ -4,6 +4,7 @@
 
 <p>Welcome to Salon Space, <%= current_user.email %></p>
 <div id="upcoming_appointments" class="span-8">
+  <div class="box">
   <h2>Upcoming Appointments</h2>
   <% if !@upcoming_appointments.blank? -%>
   <ul>
@@ -19,9 +20,11 @@
   <% else %>
   <p>You don't have any upcoming appointments.</p>
   <% end -%>
-  <p><%= link_to "New Appointment", new_appointment_path %></p>
+  <p class="more"><%= link_to "New Appointment", new_appointment_path %></p>
+  </div>
 </div>
 <div id="recent_appointments" class="span-8">
+  <div class="box">
   <h2>Recent Appointments</h2>
   <% if !@recent_appointments.blank? -%>
   <ul>
@@ -37,9 +40,11 @@
   <% else %>
   <p>You haven't had any appointments yet.</p>
   <% end -%>
-  <p><%= link_to "All Appointments", appointments_path %></p>
+  <p class="more"><%= link_to "All Appointments", appointments_path %></p>
+  </div>
 </div>
 <div id="recent_clients" class="span-8 last">
+  <div class="box">
   <h2>Recent Clients</h2>
   <% if !@new_clients.blank? %>
   <ul>
@@ -50,8 +55,11 @@
   <% else %>
     <p>You don't have any clients yet.</p>
   <% end %>
-  <p><%= link_to "Add New Client", new_client_path %></p>
+  <p class="more"><%= link_to "Add New Client", new_client_path %></p>
+  </div>
 </div>
-<% else %>
+
+<% else -%>
 <p>Please <%= link_to "Log in", login_url %> to start using Salon Space</p>
-<% end %>
+
+<% end -%>

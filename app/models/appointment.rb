@@ -26,11 +26,11 @@ class Appointment < ActiveRecord::Base
     }}
   
   def pretty_time
-    @pretty_time ||= time.to_s(:pretty).gsub(/  /, ' ')
+    @pretty_time ||= time ? time.to_s(:pretty).gsub(/  /, ' ') : "Not scheduled yet"
   end
   
   def pretty_date
-    @pretty_date ||= time.to_date.to_s(:pretty).gsub(/  /, ' ')    
+    @pretty_date ||= time ? time.to_date.to_s(:pretty).gsub(/  /, ' ') : "Not scheduled yet"
   end
 
 end
