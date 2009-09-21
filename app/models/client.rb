@@ -18,6 +18,7 @@
 #
 
 class Client < ActiveRecord::Base
+  belongs_to :how_met
 
   validates_format_of :phone, :with    => /^(\d{3}-)?\d{3}-\d{4}$/, 
                               :message => "should be of format ###-###-####",

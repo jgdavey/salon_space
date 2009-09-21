@@ -5,6 +5,7 @@
       <%= f.input :phone, :required => false %>
       <%= f.input :address, :required => false %>
       <%= f.input :hair_description, :input_html => {:class => 'shallow'} %>
+      <%= f.input :how_met, :as => :select, :required => false %>
       <%= f.input :notes, :required => false %>
       <%= f.input :birthdate, :as => :string, :required => false %>
     <% end -%>
