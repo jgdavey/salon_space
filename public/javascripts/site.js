@@ -10,8 +10,11 @@ $("#appointment_time").datepicker({
 
 // Handle birthdays a bit differently
 $("#client_birthdate").datepicker({
-	changeMonth: true,
-	changeYear: true,
-	yearRange: '1940:2000',
-	dateFormat: 'yy-mm-dd'
+	yearRange: '1970:2000',
+	dateFormat: 'yy-mm-dd',
+	buttonImage: '/images/calendar_icon.gif',
+	showOn: 'button',
+	onSelect: function(dateText, inst) {
+		this.focus();
+	}	
 });
