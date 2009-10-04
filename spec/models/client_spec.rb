@@ -104,5 +104,17 @@ describe Client, "::find_or_create_by_name" do
     existing_client = Factory(:client, :name => "Jimmy Dean Davey")
     Client.find_or_create_by_name("Jimmy Dean Davey").should == existing_client
   end
+  
+  it "should only fill first name on creation if given one name" do
+    client = Client.find_or_create_by_name("Samuel")
+    client.first_name.should == "Samuel"
+    client.last_name.should be_blank
+  end
+  
+  it "should find clients that only have a first name" do
+    existing_client = Factory(:client, :name => "James")
+    client = Client.find_or_create_by_name("James")
+    client.should == existing_client
+  end
 end
 
