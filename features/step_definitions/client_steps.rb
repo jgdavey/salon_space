@@ -16,6 +16,14 @@ Given /^the following clients:$/ do |table|
   end
 end
 
+
+When /^I remove a client$/ do
+  client = Client.first
+  visit client_path(client), :delete
+end
+
+
+
 Then /^I should have ([0-9]+) clients?$/ do |num|
   Client.count.should == num.to_i
 end

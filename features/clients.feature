@@ -41,8 +41,7 @@ Feature: Manage Clients
 
   Scenario: Removing a client
     Given I have 3 clients
-    And I am on the list of clients page
-    When I follow "Delete"
+    When I remove a client
     Then I should be on the list of clients page
     And I should see "Successfully removed client"
     And I should have 2 clients

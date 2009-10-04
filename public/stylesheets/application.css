@@ -302,3 +302,7 @@ ul#icons span.ui-icon {
 }
 
 /* @end */
+
+p.more {
+	margin-bottom: 0;
+}

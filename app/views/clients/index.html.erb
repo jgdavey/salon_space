@@ -1,22 +1,26 @@
 <% title "Clients" %>
 
+<p class="clearfix">
+  <%= link_to "New Client", new_client_path, :class => 'button positive' %>
+</p>
+
 <table>
   <tr>
     <th>Name</th>
     <th>Phone</th>
     <th>Email</th>
+    <th>Hair</th>
   </tr>
   <% for client in @clients %>
     <tr>
-      <td><%= link_to client.name, client %></td>
-      <td><%=h client.phone %></td>
-      <td><%=h client.email %></td>
       <td>
-        <%= link_to "Edit", edit_client_path(client), :class => 'button' %>
-        <%= link_to image_tag('/stylesheets/icons/cross.png') + " Delete", client, :confirm => 'Are you sure?', :method => :delete, :class => 'button negative' %>
+        <%= link_to client.name, client %>
+        <%= link_to image_tag('edit.png'), edit_client_path(client)%>
       </td>
+      <td><%=h client.phone %></td>
+      <td><%= mail_to client.email %></td>
+      <td><%=h client.hair_description %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Client", new_client_path, :class => 'button positive' %></p>

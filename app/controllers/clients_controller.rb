@@ -2,9 +2,8 @@ class ClientsController < ApplicationController
   before_filter :require_user
   
   def index
-    @clients = Client.all
     respond_to do |format|
-      format.html
+      format.html { @clients = Client.all(:order => "last_name ASC") }
       format.js { auto_complete_for_client_name(:limit => params[:limit]) }
     end
   end

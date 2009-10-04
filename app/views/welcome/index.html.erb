@@ -3,6 +3,7 @@
 <% if current_user %>
 
 <p>Welcome to Salon Space, <%= current_user.email %></p>
+
 <div id="upcoming_appointments" class="span-8">
   <div class="box">
   <h2>Upcoming Appointments</h2>
@@ -20,7 +21,7 @@
   <% else %>
   <p>You don't have any upcoming appointments.</p>
   <% end -%>
-  <p class="more"><%= link_to "New Appointment", new_appointment_path %></p>
+  <p class="more clearfix"><%= link_to "New Appointment", new_appointment_path, :class => 'button positive' %></p>
   </div>
 </div>
 <div id="recent_appointments" class="span-8">
@@ -40,7 +41,7 @@
   <% else %>
   <p>You haven't had any appointments yet.</p>
   <% end -%>
-  <p class="more"><%= link_to "All Appointments", appointments_path %></p>
+  <p class="more clearfix"><%= link_to "All Appointments", appointments_path, :class => 'button positive' %></p>
   </div>
 </div>
 <div id="recent_clients" class="span-8 last">
@@ -55,7 +56,7 @@
   <% else %>
     <p>You don't have any clients yet.</p>
   <% end %>
-  <p class="more"><%= link_to "Add New Client", new_client_path %></p>
+  <p class="more clearfix"><%= link_to "Add New Client", new_client_path, :class => 'button positive' %></p>
   </div>
 </div>
 

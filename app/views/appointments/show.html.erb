@@ -8,7 +8,10 @@
 
 <p><%= @appointment.service.name if @appointment.service %></p>
 
+<p class="clearfix">
+  <%= link_to image_tag('edit.png')+"Edit", edit_appointment_path(@appointment), :class => 'button' %>
+  <%= link_to image_tag('/stylesheets/icons/cross.png')+"Cancel this appointment", @appointment, :method => :delete, :class => 'button negative' %>
+</p>
 <p>
-  <%= link_to "Edit", edit_appointment_path(@appointment) %> |
   <%= link_to "All Appointments", appointments_path %>
 </p>
