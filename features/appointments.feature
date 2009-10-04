@@ -7,11 +7,6 @@ Feature: Managing Appointments
   Background:
     Given a user with email and password "bob@example.com/secret"
     Given I am logged in as "bob@example.com/secret"
-
-
-  Scenario: Adding a new appointment
-    Given I am on the list of appointments page
-    And I have a client named "Jane Michaels"
     And I have the following service records:
     | name    |
     | Haircut |
@@ -21,9 +16,13 @@ Feature: Managing Appointments
     | Red7 - Chicago |
     | Home           |
 
+
+  Scenario: Adding a new appointment
+    Given I am on the list of appointments page
+    And I have a client named "Jane Michaels"
     When I follow "New Appointment"
     And I fill in "Date of Appointment" with "2009-08-01"
-    And I select "Jane Michaels" from "Client"
+    And I fill in "Jane Michaels" for "Client"
     And I select "Haircut" from "Type of Service"
     And I select "Home" from "Location"
     And I press "Save"
@@ -50,4 +49,13 @@ Feature: Managing Appointments
     And I should be on the list of appointments page
     And I should see "August 2, 2009"
 
+
+  Scenario: Add a New client
+    Given I am on the list of appointments page
+    When I follow "New Appointment"
+    And I fill in "Date of Appointment" with "2009-08-01"
+    And I fill in "Joan Bevel" for "Client"
+    And I press "Save"
+    Then I should see "Joan Bevel"
+    
   

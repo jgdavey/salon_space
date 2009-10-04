@@ -1,9 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :appointments
-
+  
+  map.resources :appointments, :member => {:auto_complete_for_client_name => :get}
   map.resources :clients
-
-
   map.root :controller => 'welcome'
 
   map.signup "signup", :controller => "users", :action => "new"

@@ -18,3 +18,6 @@ $("#client_birthdate").datepicker({
 		this.focus();
 	}	
 });
+
+
+$("#appointment_client_name").autocomplete("auto_complete_for_client_name");

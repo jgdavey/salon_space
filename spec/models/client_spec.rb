@@ -30,6 +30,13 @@ describe Client do
     c.last_name.should eql('Bob')
     c.name.should eql('Jim Bob')
   end
+  
+  it "should allow spaces in last name" do
+    c = Factory(:client, :name => 'Jim Bob Brown')
+    c.first_name.should eql('Jim')
+    c.last_name.should eql('Bob Brown')
+    c.name.should eql('Jim Bob Brown')
+  end
 end
 
 describe Client, "phone number" do
@@ -84,6 +91,18 @@ describe Client, "other attributes" do
     client = Factory.build(:client)
     client.hair_description = "Long and hideous"
     client.should be_valid
+  end
+end
+
+describe Client, "::find_or_create_by_name" do
+  it "should find existing clients" do
+    existing_client = Factory(:client, :name => "Jimmy Dean")
+    Client.find_or_create_by_name("Jimmy Dean").should == existing_client
+  end
+  
+  it "should find existing clients (2)" do
+    existing_client = Factory(:client, :name => "Jimmy Dean Davey")
+    Client.find_or_create_by_name("Jimmy Dean Davey").should == existing_client
   end
 end
 

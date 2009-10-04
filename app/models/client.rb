@@ -32,13 +32,21 @@ class Client < ActiveRecord::Base
   end
   
   def name=(_name)
-    self.first_name, self.last_name = _name.split(' ')
+    name_parts = _name.split(' ')
+    self.first_name, self.last_name = name_parts.first, name_parts[1..-1].join(" ")
     self.name
   end
 
   def self.find_by_name(_name)
-    fn, ln = _name.split(' ')
+    name_parts = _name.split(' ')
+    fn, ln = name_parts.first, name_parts[1..-1].join(" ")
     self.find_by_first_name_and_last_name(fn, ln)
+  end
+  
+  def self.find_or_create_by_name(_name)
+    client = self.find_by_name(_name)
+    return client if client
+    self.create!(:name => _name)
   end
 
 end
