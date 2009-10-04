@@ -1,6 +1,5 @@
 class AppointmentsController < ApplicationController
   before_filter :require_user
-  auto_complete_for :client, :first_name, :select => "first_name, last_name"
 
   def index
     @appointments = Appointment.all
@@ -43,16 +42,5 @@ class AppointmentsController < ApplicationController
     @appointment.destroy
     flash[:notice] = "Successfully destroyed appointment."
     redirect_to appointments_url
-  end
-  
-  # GET /appointments/1/auto_complete_for_client_name?q=name
-  def auto_complete_for_client_name
-    find_options = {
-      :conditions => [ "LOWER(first_name) LIKE ?", '%' + params[:q].downcase + '%' ],
-      :order => "first_name ASC",
-      :select => "first_name, last_name",
-      :limit => 10 }
-    @items = Client.find(:all, find_options).collect(&:name)
-    render :text => @items.join("\n")
-  end
+  end  
 end

@@ -3,6 +3,10 @@ class ClientsController < ApplicationController
   
   def index
     @clients = Client.all
+    respond_to do |format|
+      format.html
+      format.js { auto_complete_for_client_name(:limit => params[:limit]) }
+    end
   end
 
   def show
@@ -43,4 +47,18 @@ class ClientsController < ApplicationController
     flash[:notice] = "Successfully removed client."
     redirect_to clients_url
   end
+  
+  private
+  
+  def auto_complete_for_client_name(options = {})
+    query = '%' + params[:q].downcase + '%'
+    find_options = {
+      :conditions => ["LOWER(first_name) LIKE ? OR LOWER(last_name) LIKE ?", query, query],
+      :order => "last_name ASC",
+      :select => "first_name, last_name",
+      :limit => 10 }.merge!(options)
+    @items = Client.find(:all, find_options).collect(&:name)
+    render :text => @items.join("\n")
+  end
+  
 end

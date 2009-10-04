@@ -6,7 +6,7 @@ $("#appointment_time").datepicker({
 	onSelect: function(dateText, inst) {
 		this.focus();
 	}
-});
+});	
 
 // Handle birthdays a bit differently
 $("#client_birthdate").datepicker({
@@ -19,5 +19,4 @@ $("#client_birthdate").datepicker({
 	}	
 });
 
-
-$("#appointment_client_name").autocomplete("auto_complete_for_client_name");
+$("#appointment_client_name").autocomplete("/clients.js", { max: 6 });
