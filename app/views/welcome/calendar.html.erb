@@ -7,7 +7,7 @@
     <span class="daynumber"><%= day.day %></span>
     <% for appointment in appointments %>
       <p><%= link_to appointment.client_name, appointment.client %> at 
-      <%= link_to appointment.time.strftime("%I:%M %p"), appointment %></p>
+      <%= link_to appointment.time.strftime("%l:%M %p").downcase, appointment %></p>
     <% end %>
   <% end %>
 <% end %>
