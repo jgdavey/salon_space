@@ -25,6 +25,7 @@
        <% if current_user -%>
         <ul id="navigation" class="push-1 round tabs last">
           <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Calendar", calendar_path %></li>
           <li><%= link_to "Clients", clients_path %></li>
           <li class="last"><%= link_to "Appointments", appointments_path %></li>
         </ul>

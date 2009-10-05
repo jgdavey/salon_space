@@ -1,0 +1,14 @@
+<% if @appointments %>
+<% title Time.now.strftime("%B") %>
+
+<% calendar_for @appointments, :html => {:id => "calendar"} do |t| %>
+  <%= t.head('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun') %>
+  <% t.day :day_method => :time  do |day, appointments| %>
+    <span class="daynumber"><%= day.day %></span>
+    <% for appointment in appointments %>
+      <%= link_to appointment.client_name, appointment.client %> at 
+      <%= link_to appointment.time.strftime("%I:%M %p"), appointment %>
+    <% end %>
+  <% end %>
+<% end %>
+<% end %>

@@ -4,4 +4,8 @@ class WelcomeController < ApplicationController
     @recent_appointments   = Appointment.recent.reverse  # Reverse to most recent first
     @new_clients           = Client.all(:order => 'created_at DESC', :limit => 10)
   end
+  
+  def calendar
+    @appointments = Appointment.this_month
+  end
 end

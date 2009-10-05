@@ -303,6 +303,61 @@ ul#icons span.ui-icon {
 
 /* @end */
 
+#calendar{
+	height: 300px;
+	border-left: 1px solid #ddd;
+}
+
+#calendar td {
+	width: 100px;
+	height: 75px;
+	padding: 10px 10px;
+	border-bottom: 1px solid #ddd;
+	border-right: 1px solid #ddd ;
+	vertical-align: top;
+}
+
+#calendar tr:hover td {
+	background-color: inherit;
+}
+
+#calendar tr td:hover {
+	background-color: #fffade;
+}
+
+.daynumber {
+	font-size: .8em;
+	color: #999;
+	display: block;
+	position: relative;
+	float: left;
+	margin: -5px 5px 5px -5px;
+}
+
+td.weekend {
+	border: none;
+}
+
+td.notmonth {
+	background-color: #f3f3f3 !important;
+}
+
+#calendar td.today {
+	border: 2px solid #afa;
+	border-bottom-width: 3px;
+	border-right-width: 3px;
+	background-color: #dfd !important;
+}
+
+#calendar tr:hover td.weekend, td.weekend {
+	background-color: #fafafa;
+}
+
+#calendar thead th {
+	text-align: center;
+	height: 2em;
+}
+
 p.more {
 	margin-bottom: 0;
 }

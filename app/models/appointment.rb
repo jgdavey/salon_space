@@ -24,6 +24,10 @@ class Appointment < ActiveRecord::Base
     :conditions => ["time < ?", Time.now], 
     :limit => (args.first || 5)
     }}
+  named_scope   :this_month, lambda { |*args| {
+    :conditions => { :time => 1.month.ago..1.month.from_now }
+  }}
+  
   
   def pretty_time
     @pretty_time ||= time ? time.to_s(:pretty).gsub(/  /, ' ') : "Not scheduled yet"
